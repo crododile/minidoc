@@ -1,10 +1,18 @@
 # minidoc
 
-A Clojure library designed to ... well, that part is up to you.
+This is a mini document review platform sample. 
+
+It is written in clojure using compojure, ring for http, and hiccup for templating.
+
+Apache Tika is integrated to allow the upload and parsing
+of pdf, doc, txt document uploads.
+
+
 
 ## Usage
 
-FIXME
+Upload documents, enter search terms to view documents containing the 
+terms. The search terms will be hightlighted.
 
 ## License
 
