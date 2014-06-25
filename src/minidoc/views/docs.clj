@@ -10,7 +10,7 @@
 		 [:input {:name "file" :type "file" :size "20"}]
 		 [:input {:type "submit" :name "submit" :value "submit"}]]
 	 (form/form-to [:post "/"]
-								 (form/label "body" "Add Document to DB")
+								 (form/label "body" "Copy Paste Document to DB")
 								 (form/text-area "body")
 								 (form/submit-button "Create Document"))])
 								 
