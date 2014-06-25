@@ -18,16 +18,24 @@
 	
 (defn show [target]
 	(view/show (model/one target)))
+
+(defn wash-terms 
+"If both search terms are the same 
+set one to blank to prevent duplicate key erro"
+	[terms]
+	(if (= (:first terms) (:second terms))
+	{:first (:first terms) :second "" :all? (:all? terms)}
+	terms))
 	
 (defn scanned_index [terms]
-	(view/scanned_index (model/all) terms))
+	(view/scanned_index (model/all) (wash-terms terms)))
 	
 (defn and_matching_documents [terms]
-	(println (model/sql_and_filter terms))
-	(view/and_matches (model/sql_and_filter terms) terms))
+	(view/and_matches (model/sql_and_filter terms) (wash-terms terms)))
 	
 (defn or_matching_documents [terms]
-  (view/or_matches (model/sql_filter terms) terms))
+  (view/or_matches (model/sql_filter terms) (wash-terms terms)))
+	
 	
 (defn create
 	[doc]
@@ -46,6 +54,7 @@
 		(POST "/file" {params :params} 
 			(create (tika/parser (:tempfile (:file params))))))
 	(POST "/terms" [& terms] 
+	(println terms)
 		(if (= (:all? terms) "all")
 			  (scanned_index terms)
 				(if (=(:all? terms) "either")

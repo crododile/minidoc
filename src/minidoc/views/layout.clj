@@ -15,7 +15,6 @@
 									 "/stylesheets/skeleton.css"
 									 "/stylesheets/screen.css"
 									 "/stylesheets/mine.css")
-		(h/include-css "http://fonts.goggleapis.com/css?family=Sigmar+One&v1")
 	 [:body
 	  [:h1 "DOC REVIEW JR"]
 		[:nav

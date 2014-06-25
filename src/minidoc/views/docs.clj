@@ -46,9 +46,9 @@
 		(map
 		  (fn [doc] [:div {:class "doc"}
 				(clojure.string/replace (h (:body doc)) 
-				  (re-pattern (str  (terms :first) "|" (terms :second)))
-					 {(terms :first) (str "<span style='background-color:yellow'>" (terms :first) "</span>")
-					 (terms :second) (str "<span style='background-color:red'>" (terms :second) "</span>")})
+				  (re-pattern (str  (:first terms) "|" (:second terms)))
+					 {(terms :first) (str "<span style='background-color:yellow'>" (:first terms) "</span>")
+					 (terms :second) (str "<span style='background-color:red'>" (:second terms) "</span>")})
 					 ])
 		docs))
 		

@@ -8,7 +8,6 @@
 	(into [] (sql/query spec ["select * from docs order by id desc"])))
 	
 (defn sql_filter [terms]
-	(println terms)
 		(distinct (reduce into (map 
 			(fn [term]
 			  (if (not= term "")
